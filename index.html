@@ -36,7 +36,7 @@
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
     <script type="text/javascript">
         (function() {
-            emailjs.init("2RRp_FQxhiu-8scec"); // ✅ Public Key الخاص بك
+            emailjs.init("2RRp_FQxhiu-8scec");
         })();
     </script>
 
@@ -148,6 +148,7 @@
         .portfolio-tag { padding: 4px 12px; background: rgba(99, 102, 241, 0.15); color: var(--primary); border-radius: 6px; font-size: 0.8rem; font-weight: 500; }
         .portfolio-info h3 { font-size: 1.2rem; margin-bottom: 0.5rem; }
         .portfolio-info p { color: var(--gray); font-size: 0.95rem; }
+        .portfolio-img { width: 100%; height: 100%; object-fit: cover; display: block; }
 
         /* Skills */
         .skills-container { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; }
@@ -323,20 +324,86 @@
     <section id="portfolio" class="section">
         <div class="container">
             <div class="section-title"><span class="badge">أعمالي</span><h2>أحدث المشاريع</h2><p>مجموعة مختارة من أعمالي التي تعكس شغفي بالتصميم والابتكار</p></div>
+            
             <div class="portfolio-filter">
                 <button class="filter-btn active" data-filter="all">الكل</button>
-                <button class="filter-btn" data-filter="ui">UI Design</button>
-                <button class="filter-btn" data-filter="ux">UX Research</button>
                 <button class="filter-btn" data-filter="mobile">تطبيقات</button>
                 <button class="filter-btn" data-filter="web">مواقع</button>
+                <button class="filter-btn" data-filter="iot">IoT</button>
             </div>
+            
             <div class="portfolio-grid">
-                <div class="portfolio-card animate-on-scroll" data-category="mobile ui"><div class="portfolio-image">🏦</div><div class="portfolio-info"><div class="portfolio-tags"><span class="portfolio-tag">UI/UX Design</span><span class="portfolio-tag">Mobile App</span></div><h3>تطبيق بنكي رقمي</h3><p>تصميم واجهة تطبيق مصرفي حديث يركز على سهولة الاستخدام والأمان.</p></div></div>
-                <div class="portfolio-card animate-on-scroll" data-category="web ui"><div class="portfolio-image">🛒</div><div class="portfolio-info"><div class="portfolio-tags"><span class="portfolio-tag">E-Commerce</span><span class="portfolio-tag">UI Design</span></div><h3>متجر إلكتروني</h3><p>تصميم متجر إلكتروني متكامل مع تجربة تسوق سلسة وجذابة.</p></div></div>
-                <div class="portfolio-card animate-on-scroll" data-category="web"><div class="portfolio-image">📊</div><div class="portfolio-info"><div class="portfolio-tags"><span class="portfolio-tag">Dashboard</span><span class="portfolio-tag">Web Design</span></div><h3>لوحة تحكم تحليلية</h3><p>تصميم لوحة تحكم لعرض البيانات والإحصائيات بطريقة واضحة ومفهومة.</p></div></div>
-                <div class="portfolio-card animate-on-scroll" data-category="mobile ux"><div class="portfolio-image">🏥</div><div class="portfolio-info"><div class="portfolio-tags"><span class="portfolio-tag">UX Research</span><span class="portfolio-tag">Mobile App</span></div><h3>تطبيق صحي</h3><p>بحث وتصميم تجربة مستخدم لتطبيق رعاية صحية يخدم المرضى والأطباء.</p></div></div>
-                <div class="portfolio-card animate-on-scroll" data-category="web ui"><div class="portfolio-image">✈️</div><div class="portfolio-info"><div class="portfolio-tags"><span class="portfolio-tag">UI/UX</span><span class="portfolio-tag">Web Platform</span></div><h3>منصة حجز سفر</h3><p>تصميم منصة متكاملة لحجز الرحلات والفنادق مع تجربة مستخدم متميزة.</p></div></div>
-                <div class="portfolio-card animate-on-scroll" data-category="mobile ui"><div class="portfolio-image">🍔</div><div class="portfolio-info"><div class="portfolio-tags"><span class="portfolio-tag">Mobile App</span><span class="portfolio-tag">UI Design</span></div><h3>تطبيق توصيل طعام</h3><p>تصميم تطبيق توصيل طعام بواجهة جذابة وسهلة الاستخدام للعملاء.</p></div></div>
+                <!-- مشروع 1: مراقبة الخزانات -->
+                <div class="portfolio-card animate-on-scroll" data-category="mobile iot">
+                    <div class="portfolio-image">
+                        <img src="images/tank-monitor.jpg" alt="تطبيق مراقبة الخزانات" class="portfolio-img" loading="lazy" onerror="this.parentElement.innerHTML='<div style=\'width:100%;height:100%;background:linear-gradient(135deg,#6366f1,#0ea5e9);display:flex;align-items:center;justify-content:center;font-size:2rem;color:white;\'>💧</div>'">
+                    </div>
+                    <div class="portfolio-info">
+                        <div class="portfolio-tags">
+                            <span class="portfolio-tag">Mobile App</span>
+                            <span class="portfolio-tag">IoT</span>
+                        </div>
+                        <h3>مراقبة الخزانات</h3>
+                        <p>تطبيق لمراقبة مستوى الخزانات عن بعد عبر حساسات ذكية، مع إشعارات فورية وتقارير يومية.</p>
+                        <div class="portfolio-overlay">
+                            <a href="https://x.com/fsifes_momen/status/1843633285144231941/photo/1" target="_blank" rel="noopener">عرض المشروع →</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- مشروع 2: مناظرات -->
+                <div class="portfolio-card animate-on-scroll" data-category="mobile">
+                    <div class="portfolio-image">
+                        <img src="images/munazarat.jpg" alt="تطبيق مناظرات" class="portfolio-img" loading="lazy" onerror="this.parentElement.innerHTML='<div style=\'width:100%;height:100%;background:linear-gradient(135deg,#6366f1,#0ea5e9);display:flex;align-items:center;justify-content:center;font-size:2rem;color:white;\'>🎙️</div>'">
+                    </div>
+                    <div class="portfolio-info">
+                        <div class="portfolio-tags">
+                            <span class="portfolio-tag">Mobile App</span>
+                            <span class="portfolio-tag">Live Streaming</span>
+                        </div>
+                        <h3>مناظرات</h3>
+                        <p>منصة بث مباشر للمناظرات والحوارات، مع تفاعل مباشر وتصويت لحظي من المشاهدين.</p>
+                        <div class="portfolio-overlay">
+                            <a href="https://x.com/fsifes_momen/status/1878441809048895925/photo/1" target="_blank" rel="noopener">عرض المشروع →</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- مشروع 3: fly-esim -->
+                <div class="portfolio-card animate-on-scroll" data-category="mobile">
+                    <div class="portfolio-image">
+                        <img src="images/fly-esim.jpg" alt="تطبيق fly-esim" class="portfolio-img" loading="lazy" onerror="this.parentElement.innerHTML='<div style=\'width:100%;height:100%;background:linear-gradient(135deg,#6366f1,#0ea5e9);display:flex;align-items:center;justify-content:center;font-size:2rem;color:white;\'>✈️</div>'">
+                    </div>
+                    <div class="portfolio-info">
+                        <div class="portfolio-tags">
+                            <span class="portfolio-tag">Mobile App</span>
+                            <span class="portfolio-tag">E-Commerce</span>
+                        </div>
+                        <h3>fly-esim</h3>
+                        <p>تطبيق لبيع شرائح eSIM للسفر الدولي، مع تفعيل فوري ودعم لأكثر من 150 دولة.</p>
+                        <div class="portfolio-overlay">
+                            <a href="https://x.com/fsifes_momen/status/1870738451756392928/photo/1" target="_blank" rel="noopener">عرض المشروع →</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- مشروع 4: احجزلي -->
+                <div class="portfolio-card animate-on-scroll" data-category="web">
+                    <div class="portfolio-image">
+                        <img src="images/ahjazli.jpg" alt="موقع احجزلي" class="portfolio-img" loading="lazy" onerror="this.parentElement.innerHTML='<div style=\'width:100%;height:100%;background:linear-gradient(135deg,#6366f1,#0ea5e9);display:flex;align-items:center;justify-content:center;font-size:2rem;color:white;\'>📋</div>'">
+                    </div>
+                    <div class="portfolio-info">
+                        <div class="portfolio-tags">
+                            <span class="portfolio-tag">Web Design</span>
+                            <span class="portfolio-tag">Landing Page</span>
+                        </div>
+                        <h3>احجزلي</h3>
+                        <p>موقع تعريفي لتطبيق احجزلي، يشرح ميزات التطبيق ويشجع المستخدمين على تحميله وحجز طلباتهم.</p>
+                        <div class="portfolio-overlay">
+                            <a href="https://x.com/fsifes_momen/status/1834903041587216417/photo/1" target="_blank" rel="noopener">عرض المشروع →</a>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -509,9 +576,8 @@
                 date: new Date().toLocaleDateString('ar-EG')
             };
 
-            // ✅ معرفات EmailJS الخاصة بك
-            const SERVICE_ID = 'service_39lkc7p';   
-            const TEMPLATE_ID = 'template_a056i3l';  
+            const SERVICE_ID = 'service_39lkc7p';
+            const TEMPLATE_ID = 'template_a056i3l';
 
             emailjs.send(SERVICE_ID, TEMPLATE_ID, templateParams)
                 .then(function(response) {
