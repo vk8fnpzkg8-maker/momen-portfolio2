@@ -558,66 +558,117 @@
 
     <!-- JavaScript -->
     <script>
-        // Loader
-        window.addEventListener('load', () => setTimeout(() => document.getElementById('loader').classList.add('hidden'), 800));
+    // Loader
+    window.addEventListener('load', () => {
+        setTimeout(() => {
+            const loader = document.getElementById('loader');
+            if (loader) loader.classList.add('hidden');
+        }, 800);
+    });
 
-        // Mobile Menu
-        const mobileToggle = document.getElementById('mobile-toggle');
-        const navMenu = document.getElementById('nav-menu');
-        mobileToggle?.addEventListener('click', () => { navMenu.classList.toggle('active'); mobileToggle.classList.toggle('active'); });
-        document.querySelectorAll('#nav-menu a').forEach(link => link.addEventListener('click', () => { navMenu.classList.remove('active'); mobileToggle.classList.remove('active'); }));
-
-        // Active Nav on Scroll
-        const sections = document.querySelectorAll('section[id]');
-        window.addEventListener('scroll', () => {
-            let current = '';
-            sections.forEach(section => { if (pageYOffset >= section.offsetTop - 100) current = section.getAttribute('id'); });
-            document.querySelectorAll('nav a').forEach(link => { link.classList.toggle('active', link.getAttribute('href') === `#${current}`); });
+    // Mobile Menu
+    const mobileToggle = document.getElementById('mobile-toggle');
+    const navMenu = document.getElementById('nav-menu');
+    
+    if (mobileToggle && navMenu) {
+        mobileToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            mobileToggle.classList.toggle('active');
         });
+        
+        document.querySelectorAll('#nav-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+                mobileToggle.classList.remove('active');
+            });
+        });
+    }
 
-        // Scroll Animations & Skill Bars
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('animated');
-                    entry.target.querySelectorAll('.skill-progress').forEach(bar => { bar.style.width = bar.dataset.progress + '%'; });
-                    observer.unobserve(entry.target);
+    // Active Nav on Scroll
+    const sections = document.querySelectorAll('section[id]');
+    window.addEventListener('scroll', () => {
+        let current = '';
+        sections.forEach(section => {
+            if (pageYOffset >= section.offsetTop - 100) {
+                current = section.getAttribute('id');
+            }
+        });
+        document.querySelectorAll('nav a').forEach(link => {
+            link.classList.toggle('active', link.getAttribute('href') === `#${current}`);
+        });
+    });
+
+    // Scroll Animations & Skill Bars
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('animated');
+                entry.target.querySelectorAll('.skill-progress').forEach(bar => {
+                    bar.style.width = bar.dataset.progress + '%';
+                });
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+    
+    document.querySelectorAll('.animate-on-scroll').forEach(el => observer.observe(el));
+
+    // Portfolio Filter
+    document.querySelectorAll('.filter-btn').forEach(btn => {
+        btn.addEventListener('click', function() {
+            document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+            this.classList.add('active');
+            const filter = this.dataset.filter;
+            document.querySelectorAll('.portfolio-card').forEach(item => {
+                if (filter === 'all' || item.dataset.category.includes(filter)) {
+                    item.style.display = 'block';
+                    setTimeout(() => {
+                        item.style.opacity = '1';
+                        item.style.transform = 'translateY(0)';
+                    }, 100);
+                } else {
+                    item.style.opacity = '0';
+                    item.style.transform = 'translateY(20px)';
+                    setTimeout(() => { item.style.display = 'none'; }, 300);
                 }
             });
-        }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
-        document.querySelectorAll('.animate-on-scroll').forEach(el => observer.observe(el));
-
-        // Portfolio Filter
-        document.querySelectorAll('.filter-btn').forEach(btn => {
-            btn.addEventListener('click', function() {
-                document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-                this.classList.add('active');
-                const filter = this.dataset.filter;
-                document.querySelectorAll('.portfolio-card').forEach(item => {
-                    if (filter === 'all' || item.dataset.category.includes(filter)) { item.style.display = 'block'; setTimeout(() => { item.style.opacity = '1'; item.style.transform = 'translateY(0)'; }, 100); }
-                    else { item.style.opacity = '0'; item.style.transform = 'translateY(20px)'; setTimeout(() => { item.style.display = 'none'; }, 300); }
-                });
-            });
         });
+    });
 
-        // EmailJS Contact Form
-        const contactForm = document.getElementById('contactForm');
-        contactForm?.addEventListener('submit', function(e) {
+    // EmailJS Contact Form
+    const contactForm = document.getElementById('contactForm');
+    if (contactForm) {
+        contactForm.addEventListener('submit', function(e) {
             e.preventDefault();
             const btn = this.querySelector('button[type="submit"]');
             const originalText = btn.innerHTML;
             btn.innerHTML = '📤 جاري الإرسال...';
             btn.disabled = true;
 
+            const serviceMap = {
+                'ui': 'تصميم واجهات UI',
+                'ux': 'تجربة مستخدم UX',
+                'mobile': 'تصميم تطبيق موبايل',
+                'system': 'نظام تصميم Design System',
+                'consulting': 'استشارة تصميم'
+            };
+            const budgetMap = {
+                'small': 'أقل من 5,000 ر.س',
+                'medium': '5,000 - 15,000 ر.س',
+                'large': '15,000 - 30,000 ر.س',
+                'xlarge': 'أكثر من 30,000 ر.س'
+            };
+
             const templateParams = {
-                from_name: document.getElementById('name').value,
-                from_email: document.getElementById('email').value,
-                reply_to: document.getElementById('email').value,
-                service_type: document.getElementById('service').value,
-                budget: document.getElementById('budget').value || 'غير محدد',
-                message: document.getElementById('message').value,
+                from_name: document.getElementById('name').value.trim(),
+                from_email: document.getElementById('email').value.trim(),
+                reply_to: document.getElementById('email').value.trim(),
+                service_type: serviceMap[document.getElementById('service').value] || 'غير محدد',
+                budget: budgetMap[document.getElementById('budget').value] || 'غير محدد',
+                message: document.getElementById('message').value.trim(),
                 to_name: 'Momen Fsifes',
-                date: new Date().toLocaleDateString('ar-EG')
+                date: new Date().toLocaleDateString('ar-EG', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }),
+                time: new Date().toLocaleTimeString('ar-EG', { hour: '2-digit', minute: '2-digit' })
             };
 
             const SERVICE_ID = 'service_39lkc7p';
@@ -631,12 +682,24 @@
                 }, function(error) {
                     btn.innerHTML = '❌ فشل الإرسال';
                     alert('عذراً، حدث خطأ أثناء الإرسال. جرب مرة أخرى أو تواصل معي عبر واتساب.');
+                    console.error('EmailJS Error:', error);
                 })
-                .finally(function() { setTimeout(() => { btn.innerHTML = originalText; btn.disabled = false; }, 3000); });
+                .finally(function() {
+                    setTimeout(() => {
+                        btn.innerHTML = originalText;
+                        btn.disabled = false;
+                    }, 3000);
+                });
         });
+    }
 
-        // Image Fallback
-        document.querySelectorAll('img').forEach(img => img.addEventListener('error', function() { this.style.display = 'none'; this.parentElement.innerHTML = '<div style="width:100%;height:100%;background:linear-gradient(135deg,#6366f1,#0ea5e9);display:flex;align-items:center;justify-content:center;font-size:2rem;color:white;">🎨</div>'; }));
-    </script>
+    // Image Fallback
+    document.querySelectorAll('img').forEach(img => {
+        img.addEventListener('error', function() {
+            this.style.display = 'none';
+            this.parentElement.innerHTML = '<div style="width:100%;height:100%;background:linear-gradient(135deg,#6366f1,#0ea5e9);display:flex;align-items:center;justify-content:center;font-size:2rem;color:white;">🎨</div>';
+        });
+    });
+</script>
 </body>
 </html>
