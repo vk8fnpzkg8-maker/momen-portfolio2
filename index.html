@@ -1,43 +1,23 @@
-/<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <!-- 🔍 SEO Meta Tags -->
     <title>Momen Fsifes | UX/UI & Graphic Designer from Gaza</title>
-    <meta name="description" content="مؤمن فسيفس - مصمم واجهات وتجربة مستخدم من غزة. أحول الأفكار إلى تجارب رقمية بسيطة وأنيقة تركز على المستخدم وتحقق نتائج حقيقية.">
-    <meta name="keywords" content="UX/UI Designer, Graphic Designer, Gaza, Portfolio, Web Design, Mobile App, Figma, User Experience, مؤمن فسيفس">
+    <meta name="description" content="مؤمن فسيفس - مصمم واجهات وتجربة مستخدم من غزة">
+    <meta name="keywords" content="UX/UI Designer, Graphic Designer, Gaza, Portfolio, Momen Fsifes">
     <meta name="author" content="Momen Fsifes">
-    <meta name="robots" content="index, follow">
-    
-    <!-- 🌐 Open Graph / Social Media -->
     <meta property="og:title" content="Momen Fsifes | UX/UI & Graphic Designer">
-    <meta property="og:description" content="مصمم واجهات وتجربة مستخدم من غزة — أحول الأفكار إلى تجارب رقمية استثنائية">
+    <meta property="og:description" content="مصمم واجهات وتجربة مستخدم من غزة">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://momenfsifes.com">
-    <meta property="og:image" content="https://momenfsifes.com/og-image.jpg">
-    
-    <!-- 🐦 Twitter Card -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Momen Fsifes | UX/UI Designer">
-    <meta name="twitter:description" content="UX/UI & Graphic Designer from Gaza — Creating digital experiences that matter">
-    <meta name="twitter:creator" content="@fsifes_momen">
-    
-    <!-- 🔖 Favicon -->
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎨</text></svg>">
-    
-    <!-- 🔤 Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    
-    <!-- ✉️ EmailJS SDK -->
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
     <script type="text/javascript">
         (function() { emailjs.init("2RRp_FQxhiu-8scec"); })();
     </script>
-
     <style>
         :root {
             --primary: #6366f1; --primary-dark: #4f46e5; --secondary: #0ea5e9;
@@ -51,15 +31,12 @@
         * { margin: 0; padding: 0; box-sizing: border-box; }
         html { scroll-behavior: smooth; scroll-padding-top: 80px; }
         body { font-family: 'Cairo', sans-serif; background: var(--darker); color: var(--light); line-height: 1.7; overflow-x: hidden; }
-
-        /* Loader */
         #loader { position: fixed; inset: 0; background: var(--darker); display: flex; align-items: center; justify-content: center; z-index: 9999; transition: opacity 0.4s ease, visibility 0.4s ease; }
         #loader.hidden { opacity: 0; visibility: hidden; pointer-events: none; }
         .loader-spinner { width: 50px; height: 50px; border: 4px solid var(--light-gray); border-top-color: var(--primary); border-radius: 50%; animation: spin 1s linear infinite; margin-bottom: 15px; }
         @keyframes spin { to { transform: rotate(360deg); } }
         .loader-text { color: var(--gray); animation: pulse 1.5s ease-in-out infinite; }
         @keyframes pulse { 0%, 100% { opacity: 0.6; } 50% { opacity: 1; } }
-
         .container { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
         .section { padding: 100px 0; }
         .section-title { text-align: center; margin-bottom: 60px; }
@@ -70,8 +47,6 @@
         .btn:hover { transform: translateY(-3px); box-shadow: var(--shadow-hover); }
         .btn-outline { background: transparent; border: 2px solid var(--primary); color: var(--primary); }
         .btn-outline:hover { background: var(--primary); color: var(--white); }
-
-        /* Header */
         header { position: fixed; top: 0; left: 0; right: 0; padding: 1rem 0; background: rgba(2, 6, 23, 0.9); backdrop-filter: blur(20px); z-index: 1000; border-bottom: 1px solid rgba(255,255,255,0.05); }
         .header-inner { display: flex; justify-content: space-between; align-items: center; }
         .logo { display: flex; align-items: center; gap: 0.5rem; font-size: 1.5rem; font-weight: 700; color: var(--white); text-decoration: none; }
@@ -83,8 +58,6 @@
         nav a:hover, nav a.active { color: var(--primary); }
         .mobile-toggle { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 0.5rem; }
         .mobile-toggle span { width: 25px; height: 3px; background: var(--light); border-radius: 3px; transition: var(--transition); }
-
-        /* Hero */
         #home { min-height: 100vh; display: flex; align-items: center; padding-top: 80px; position: relative; overflow: hidden; }
         #home::before { content: ''; position: absolute; inset: -50%; background: radial-gradient(circle at 30% 30%, rgba(99, 102, 241, 0.1) 0%, transparent 50%), radial-gradient(circle at 70% 70%, rgba(14, 165, 233, 0.1) 0%, transparent 50%); pointer-events: none; }
         .hero-content { max-width: 650px; position: relative; z-index: 2; }
@@ -96,8 +69,6 @@
         .stat-item { text-align: right; }
         .stat-number { font-size: 2rem; font-weight: 700; background: var(--gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
         .stat-label { color: var(--gray); font-size: 0.95rem; }
-
-        /* About */
         #about { background: var(--dark); }
         .about-grid { display: grid; grid-template-columns: 1fr 1.2fr; gap: 4rem; align-items: center; }
         .about-image-wrapper { position: relative; border-radius: 20px; overflow: hidden; aspect-ratio: 4/5; background: var(--gradient); display: flex; align-items: center; justify-content: center; }
@@ -110,16 +81,12 @@
         .about-info-item { display: flex; flex-direction: column; gap: 0.3rem; }
         .about-info-label { color: var(--gray); font-size: 0.9rem; }
         .about-info-value { font-weight: 600; }
-
-        /* Services */
         .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; }
         .service-card { background: var(--dark); padding: 2rem; border-radius: 20px; transition: var(--transition); border: 1px solid rgba(255,255,255,0.05); }
         .service-card:hover { transform: translateY(-5px); border-color: var(--primary); box-shadow: var(--shadow); }
         .service-icon { width: 60px; height: 60px; background: var(--gradient); border-radius: 16px; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; margin-bottom: 1.5rem; }
         .service-card h3 { font-size: 1.3rem; margin-bottom: 0.75rem; }
         .service-card p { color: var(--gray); font-size: 0.95rem; }
-
-        /* Portfolio */
         #portfolio { background: var(--dark); }
         .portfolio-filter { display: flex; justify-content: center; gap: 0.75rem; margin-bottom: 3rem; flex-wrap: wrap; }
         .filter-btn { padding: 10px 24px; background: transparent; border: 2px solid var(--light-gray); color: var(--light); border-radius: 50px; cursor: pointer; transition: var(--transition); font-family: inherit; font-weight: 500; }
@@ -140,8 +107,6 @@
         .portfolio-info h3 { font-size: 1.2rem; margin-bottom: 0.5rem; }
         .portfolio-info p { color: var(--gray); font-size: 0.95rem; }
         .portfolio-img { width: 100%; height: 100%; object-fit: cover; display: block; }
-
-        /* Skills */
         .skills-container { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; }
         .skills-list { display: flex; flex-direction: column; gap: 1.5rem; }
         .skill-item { display: flex; flex-direction: column; gap: 0.5rem; }
@@ -154,8 +119,6 @@
         .tool-item { display: flex; flex-direction: column; align-items: center; gap: 0.75rem; padding: 1.5rem 1rem; background: var(--dark); border-radius: 16px; transition: var(--transition); text-align: center; }
         .tool-item:hover { transform: translateY(-3px); border-color: var(--primary); }
         .tool-icon { font-size: 2rem; color: var(--primary); }
-
-        /* Process */
         #process { background: var(--dark); }
         .process-steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem; position: relative; }
         .process-steps::before { content: ''; position: absolute; top: 40px; right: 10%; left: 10%; height: 3px; background: var(--gradient); z-index: 0; }
@@ -163,8 +126,6 @@
         .step-number { position: absolute; top: 0; left: 50%; transform: translateX(-50%); width: 80px; height: 80px; background: var(--gradient); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; font-weight: 700; color: var(--white); }
         .process-step h3 { margin: 1.5rem 0 0.75rem; font-size: 1.2rem; }
         .process-step p { color: var(--gray); font-size: 0.95rem; }
-
-        /* Testimonials */
         .testimonials-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; }
         .testimonial-card { background: var(--dark); padding: 2rem; border-radius: 20px; border: 1px solid rgba(255,255,255,0.05); transition: var(--transition); }
         .testimonial-card:hover { border-color: var(--primary); transform: translateY(-3px); }
@@ -174,8 +135,6 @@
         .author-avatar { width: 50px; height: 50px; border-radius: 50%; background: var(--gradient); display: flex; align-items: center; justify-content: center; font-weight: 600; color: var(--white); }
         .author-info h4 { font-weight: 600; }
         .author-info p { color: var(--gray); font-size: 0.9rem; }
-
-        /* Contact */
         .contact-grid { display: grid; grid-template-columns: 1fr 1.2fr; gap: 4rem; }
         .contact-info { display: flex; flex-direction: column; gap: 2rem; }
         .contact-item { display: flex; align-items: flex-start; gap: 1rem; }
@@ -197,8 +156,6 @@
         .form-group input:focus, .form-group select:focus, .form-group textarea:focus { outline: none; border-color: var(--primary); box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.2); }
         .form-group textarea { min-height: 120px; resize: vertical; }
         .form-group select { cursor: pointer; }
-
-        /* Footer */
         footer { background: var(--dark); padding: 4rem 0 2rem; border-top: 1px solid rgba(255,255,255,0.05); }
         .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1.5fr; gap: 3rem; margin-bottom: 3rem; }
         .footer-brand p { color: var(--gray); margin-bottom: 1.5rem; font-size: 0.95rem; }
@@ -208,8 +165,6 @@
         .footer-links a:hover { color: var(--primary); padding-right: 5px; }
         .footer-bottom { text-align: center; padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.05); color: var(--gray); font-size: 0.9rem; }
         .footer-bottom a { color: var(--primary); text-decoration: none; }
-
-        /* Responsive */
         @media (max-width: 1024px) { .about-grid, .contact-grid { grid-template-columns: 1fr; gap: 3rem; } .about-image { order: -1; max-width: 400px; margin: 0 auto; } .skills-container { grid-template-columns: 1fr; } .process-steps { grid-template-columns: repeat(2, 1fr); } .process-steps::before { display: none; } .process-step { padding-top: 0; } .step-number { position: relative; left: auto; transform: none; margin: 0 auto 1.5rem; } .footer-grid { grid-template-columns: 1fr 1fr; } }
         @media (max-width: 768px) { .mobile-toggle { display: flex; } nav ul { position: fixed; top: 80px; left: 0; right: 0; background: var(--dark); flex-direction: column; padding: 2rem; gap: 1.5rem; transform: translateY(-150%); transition: var(--transition); border-bottom: 1px solid rgba(255,255,255,0.05); } nav ul.active { transform: translateY(0); } .hero-content h1 { font-size: 2.5rem; } .hero-buttons { flex-direction: column; } .hero-stats { justify-content: center; } .about-info { grid-template-columns: 1fr; } .portfolio-grid, .testimonials-grid { grid-template-columns: 1fr; } .tools-grid { grid-template-columns: repeat(2, 1fr); } .form-grid { grid-template-columns: 1fr; } .footer-grid { grid-template-columns: 1fr; text-align: center; } .social-links { justify-content: center; } }
         @media (max-width: 480px) { .container { padding: 0 1.5rem; } .section { padding: 70px 0; } .section-title h2 { font-size: 2rem; } .hero-stats { gap: 1.5rem; flex-wrap: wrap; } .stat-number { font-size: 1.5rem; } .tools-grid { grid-template-columns: repeat(3, 1fr); } }
@@ -218,10 +173,7 @@
     </style>
 </head>
 <body>
-    <!-- Loader -->
     <div id="loader"><div class="loader-content"><div class="loader-spinner"></div><p class="loader-text">جاري التحميل...</p></div></div>
-
-    <!-- Header -->
     <header>
         <div class="container header-inner">
             <a href="#home" class="logo"><img src="images/logo.jpg" alt="Momen Fsifes Logo"></a>
@@ -238,8 +190,6 @@
             </nav>
         </div>
     </header>
-
-    <!-- Hero -->
     <section id="home">
         <div class="container">
             <div class="hero-content">
@@ -258,22 +208,20 @@
             </div>
         </div>
     </section>
-
-    <!-- About -->
     <section id="about" class="section">
         <div class="container">
             <div class="about-grid">
                 <div class="about-image animate-on-scroll">
                     <div class="about-image-wrapper">
-                        <img src="images/profile.jpg" alt="مؤمن فسيفس - مصمم UX/UI" class="about-image" onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2280%22>👨‍💻</text></svg>'">
+                        <img src="images/profile.jpg" alt="مؤمن فسيفس" class="about-image" onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2280%22>👨‍💻</text></svg>'">
                         <div class="about-image-badge">🎨 +4 سنوات خبرة</div>
                     </div>
                 </div>
                 <div class="about-content animate-on-scroll">
                     <span class="badge">من أنا</span>
                     <h3>شغفي هو تصميم تجارب مستخدم استثنائية تجمع بين الجمال والوظيفة</h3>
-                    <p>أنا مؤمن فسيفس، مصمم واجهات وتجربة مستخدم من غزة. أعمل على تحويل الأفكار المعقدة إلى تصاميم بسيطة وأنيقة تحل مشاكل حقيقية للمستخدمين. أؤمن بأن التصميم الجيد هو الذي يجعل حياة الناس أسهل وأجمل.</p>
-                    <p>عملت مع شركات ناشئة ومؤسسات في العالم العربي، وأتبع منهجية التصميم المتمركز حول المستخدم باستخدام أحدث الأدوات والتقنيات لضمان نتائج استثنائية.</p>
+                    <p>أنا مؤمن فسيفس، مصمم واجهات وتجربة مستخدم من غزة. أعمل على تحويل الأفكار المعقدة إلى تصاميم بسيطة وأنيقة تحل مشاكل حقيقية للمستخدمين.</p>
+                    <p>عملت مع شركات ناشئة ومؤسسات في العالم العربي، وأتبع منهجية التصميم المتمركز حول المستخدم باستخدام أحدث الأدوات والتقنيات.</p>
                     <div class="about-info">
                         <div class="about-info-item"><span class="about-info-label">الاسم</span><span class="about-info-value">Momen Fsifes</span></div>
                         <div class="about-info-item"><span class="about-info-label">الموقع</span><span class="about-info-value">غزة، فلسطين</span></div>
@@ -285,8 +233,6 @@
             </div>
         </div>
     </section>
-
-    <!-- Services -->
     <section id="services" class="section">
         <div class="container">
             <div class="section-title"><span class="badge">ماذا أقدم</span><h2>خدماتي المميزة</h2><p>أقدم مجموعة شاملة من خدمات التصميم الرقمي لتلبية جميع احتياجاتك</p></div>
@@ -300,8 +246,6 @@
             </div>
         </div>
     </section>
-
-    <!-- Portfolio -->
     <section id="portfolio" class="section">
         <div class="container">
             <div class="section-title"><span class="badge">أعمالي</span><h2>أحدث المشاريع</h2><p>مجموعة مختارة من أعمالي التي تعكس شغفي بالتصميم والابتكار</p></div>
@@ -316,7 +260,7 @@
                     <div class="portfolio-image"><img src="images/tank-monitor.jpg" alt="مراقبة الخزانات" class="portfolio-img" loading="lazy" onerror="this.parentElement.innerHTML='<div style=\'width:100%;height:100%;background:linear-gradient(135deg,#6366f1,#0ea5e9);display:flex;align-items:center;justify-content:center;font-size:2rem;color:white;\'>💧</div>'"></div>
                     <div class="portfolio-info">
                         <div class="portfolio-tags"><span class="portfolio-tag">Mobile App</span><span class="portfolio-tag">IoT</span></div>
-                        <h3>مراقبة الخزانات</h3><p>تطبيق لمراقبة مستوى الخزانات عن بعد عبر حساسات ذكية، مع إشعارات فورية وتقارير يومية.</p>
+                        <h3>مراقبة الخزانات</h3><p>تطبيق لمراقبة مستوى الخزانات عن بعد عبر حساسات ذكية.</p>
                         <div class="portfolio-overlay"><a href="https://x.com/fsifes_momen/status/1843633285144231941/photo/1" target="_blank" rel="noopener">عرض المشروع →</a></div>
                     </div>
                 </div>
@@ -324,7 +268,7 @@
                     <div class="portfolio-image"><img src="images/munazarat.jpg" alt="مناظرات" class="portfolio-img" loading="lazy" onerror="this.parentElement.innerHTML='<div style=\'width:100%;height:100%;background:linear-gradient(135deg,#6366f1,#0ea5e9);display:flex;align-items:center;justify-content:center;font-size:2rem;color:white;\'>🎙️</div>'"></div>
                     <div class="portfolio-info">
                         <div class="portfolio-tags"><span class="portfolio-tag">Mobile App</span><span class="portfolio-tag">Live Streaming</span></div>
-                        <h3>مناظرات</h3><p>منصة بث مباشر للمناظرات والحوارات، مع تفاعل مباشر وتصويت لحظي من المشاهدين.</p>
+                        <h3>مناظرات</h3><p>منصة بث مباشر للمناظرات والحوارات.</p>
                         <div class="portfolio-overlay"><a href="https://x.com/fsifes_momen/status/1878441809048895925/photo/1" target="_blank" rel="noopener">عرض المشروع →</a></div>
                     </div>
                 </div>
@@ -332,7 +276,7 @@
                     <div class="portfolio-image"><img src="images/fly-esim.jpg" alt="fly-esim" class="portfolio-img" loading="lazy" onerror="this.parentElement.innerHTML='<div style=\'width:100%;height:100%;background:linear-gradient(135deg,#6366f1,#0ea5e9);display:flex;align-items:center;justify-content:center;font-size:2rem;color:white;\'>✈️</div>'"></div>
                     <div class="portfolio-info">
                         <div class="portfolio-tags"><span class="portfolio-tag">Mobile App</span><span class="portfolio-tag">E-Commerce</span></div>
-                        <h3>fly-esim</h3><p>تطبيق لبيع شرائح eSIM للسفر الدولي، مع تفعيل فوري ودعم لأكثر من 150 دولة.</p>
+                        <h3>fly-esim</h3><p>تطبيق لبيع شرائح eSIM للسفر الدولي.</p>
                         <div class="portfolio-overlay"><a href="https://x.com/fsifes_momen/status/1870738451756392928/photo/1" target="_blank" rel="noopener">عرض المشروع →</a></div>
                     </div>
                 </div>
@@ -340,15 +284,13 @@
                     <div class="portfolio-image"><img src="images/ahjazli.jpg" alt="احجزلي" class="portfolio-img" loading="lazy" onerror="this.parentElement.innerHTML='<div style=\'width:100%;height:100%;background:linear-gradient(135deg,#6366f1,#0ea5e9);display:flex;align-items:center;justify-content:center;font-size:2rem;color:white;\'>📋</div>'"></div>
                     <div class="portfolio-info">
                         <div class="portfolio-tags"><span class="portfolio-tag">Web Design</span><span class="portfolio-tag">Landing Page</span></div>
-                        <h3>احجزلي</h3><p>موقع تعريفي لتطبيق احجزلي، يشرح ميزات التطبيق ويشجع المستخدمين على تحميله وحجز طلباتهم.</p>
+                        <h3>احجزلي</h3><p>موقع تعريفي لتطبيق احجزلي.</p>
                         <div class="portfolio-overlay"><a href="https://x.com/fsifes_momen/status/1834903041587216417/photo/1" target="_blank" rel="noopener">عرض المشروع →</a></div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-
-    <!-- Skills -->
     <section id="skills" class="section">
         <div class="container">
             <div class="section-title"><span class="badge">مهاراتي</span><h2>قدراتي التقنية</h2><p>أمتلك مجموعة متنوعة من المهارات التي تمكنني من تقديم حلول تصميمية متكاملة</p></div>
@@ -375,47 +317,40 @@
             </div>
         </div>
     </section>
-
-    <!-- Process -->
     <section id="process" class="section">
         <div class="container">
             <div class="section-title"><span class="badge">منهجيتي</span><h2>مراحل العمل</h2><p>أتبع عملية تصميم منهجية لضمان تقديم أفضل النتائج</p></div>
             <div class="process-steps">
-                <div class="process-step animate-on-scroll"><div class="step-number">01</div><h3>البحث والتحليل</h3><p>فهم المستخدم والسوق والمنافسين لتحديد المشكلة بوضوح ووضع استراتيجية الحل.</p></div>
-                <div class="process-step animate-on-scroll"><div class="step-number">02</div><h3>التخطيط والتصوير</h3><p>إنشاء Wireframes و User Flows لهيكلة الحل المقترح وتدفق المستخدم.</p></div>
-                <div class="process-step animate-on-scroll"><div class="step-number">03</div><h3>التصميم والنمذجة</h3><p>تصميم واجهات عالية الدقة وإنشاء نماذج تفاعلية لعرض الفكرة بوضوح.</p></div>
-                <div class="process-step animate-on-scroll"><div class="step-number">04</div><h3>الاختبار والتسليم</h3><p>اختبار التصميم مع المستخدمين الحقيقيين وتسليم الملفات النهائية جاهزة للتطوير.</p></div>
+                <div class="process-step animate-on-scroll"><div class="step-number">01</div><h3>البحث والتحليل</h3><p>فهم المستخدم والسوق والمنافسين لتحديد المشكلة بوضوح.</p></div>
+                <div class="process-step animate-on-scroll"><div class="step-number">02</div><h3>التخطيط والتصوير</h3><p>إنشاء Wireframes و User Flows لهيكلة الحل المقترح.</p></div>
+                <div class="process-step animate-on-scroll"><div class="step-number">03</div><h3>التصميم والنمذجة</h3><p>تصميم واجهات عالية الدقة وإنشاء نماذج تفاعلية.</p></div>
+                <div class="process-step animate-on-scroll"><div class="step-number">04</div><h3>الاختبار والتسليم</h3><p>اختبار التصميم مع المستخدمين الحقيقيين.</p></div>
             </div>
         </div>
     </section>
-
-    <!-- Testimonials -->
     <section id="testimonials" class="section">
         <div class="container">
             <div class="section-title"><span class="badge">آراء العملاء</span><h2>ماذا يقول عملائي</h2><p>تجارب حقيقية من عملاء سعداء عملت معهم</p></div>
             <div class="testimonials-grid">
-                <div class="testimonial-card animate-on-scroll"><p class="testimonial-text">مؤمن مصمم استثنائي! حوّل فكرتنا البسيطة إلى تطبيق مذهل يستخدمه آلاف المستخدمين يومياً. احترافية عالية والتزام بالمواعيد.</p><div class="testimonial-author"><div class="author-avatar">م ع</div><div class="author-info"><h4>محمد العتيبي</h4><p>مؤسس شركة تقنية</p></div></div></div>
-                <div class="testimonial-card animate-on-scroll"><p class="testimonial-text">التعامل مع مؤمن كان تجربة رائعة. يفهم احتياجات العميل بسرعة ويقدم حلولاً إبداعية تفوق التوقعات.</p><div class="testimonial-author"><div class="author-avatar">س ح</div><div class="author-info"><h4>سارة الحربي</h4><p>مديرة تسويق - متجر إلكتروني</p></div></div></div>
-                <div class="testimonial-card animate-on-scroll"><p class="testimonial-text">أعاد مؤمن تصميم تطبيقنا بالكامل وزادت نسبة الاحتفاظ بالمستخدمين بنسبة 40%. شريك حقيقي للنجاح!</p><div class="testimonial-author"><div class="author-avatar">خ د</div><div class="author-info"><h4>خالد الدوسري</h4><p>مدير منتج - شركة ناشئة</p></div></div></div>
+                <div class="testimonial-card animate-on-scroll"><p class="testimonial-text">مؤمن مصمم استثنائي! حوّل فكرتنا البسيطة إلى تطبيق مذهل يستخدمه آلاف المستخدمين يومياً.</p><div class="testimonial-author"><div class="author-avatar">م ع</div><div class="author-info"><h4>محمد العتيبي</h4><p>مؤسس شركة تقنية</p></div></div></div>
+                <div class="testimonial-card animate-on-scroll"><p class="testimonial-text">التعامل مع مؤمن كان تجربة رائعة. يفهم احتياجات العميل بسرعة ويقدم حلولاً إبداعية.</p><div class="testimonial-author"><div class="author-avatar">س ح</div><div class="author-info"><h4>سارة الحربي</h4><p>مديرة تسويق</p></div></div></div>
+                <div class="testimonial-card animate-on-scroll"><p class="testimonial-text">أعاد مؤمن تصميم تطبيقنا بالكامل وزادت نسبة الاحتفاظ بالمستخدمين بنسبة 40%.</p><div class="testimonial-author"><div class="author-avatar">خ د</div><div class="author-info"><h4>خالد الدوسري</h4><p>مدير منتج</p></div></div></div>
             </div>
         </div>
     </section>
-
-    <!-- Contact -->
     <section id="contact" class="section">
         <div class="container">
             <div class="section-title"><span class="badge">تواصل معي</span><h2>لنعمل معاً</h2><p>هل لديك مشروع في ذهنك؟ أحب أن أسمع منك!</p></div>
             <div class="contact-grid">
                 <div class="contact-info">
-                    <div class="animate-on-scroll"><h3>لنحول فكرتك إلى واقع</h3><p style="color: var(--gray); margin: 1rem 0 2rem;">سواء كنت تحتاج تصميم تطبيق جديد، أو إعادة تصميم موقعك الحالي، أو استشارة في تجربة المستخدم - أنا هنا لمساعدتك.</p></div>
+                    <div class="animate-on-scroll"><h3>لنحول فكرتك إلى واقع</h3><p style="color: var(--gray); margin: 1rem 0 2rem;">سواء كنت تحتاج تصميم تطبيق جديد، أو إعادة تصميم موقعك الحالي - أنا هنا لمساعدتك.</p></div>
                     <div class="contact-item animate-on-scroll">
                         <div class="contact-icon"><img src="images/whatsapp.png" alt="WhatsApp"></div>
-                        <div class="contact-details"><h4>WhatsApp</h4><a href="https://wa.me/970599762108" target="_blank" rel="noopener">
-    <span style="direction: ltr; unicode-bidi: embed; display: inline-block;">+970 59 976 2108</span>
-</a>
+                        <div class="contact-details"><h4>WhatsApp</h4><a href="https://wa.me/970599762108" target="_blank" rel="noopener"><span style="direction: ltr; unicode-bidi: embed; display: inline-block;">+970 59 976 2108</span></a></div>
+                    </div>
                     <div class="contact-item animate-on-scroll">
                         <div class="contact-icon">📧</div>
-                        <div class="contact-details"><h4>البريد الإلكتروني</h4><a href="mailto:momen.fsifes@gmail.com">hello@momenfsifes.com</a></div>
+                        <div class="contact-details"><h4>البريد الإلكتروني</h4><a href="mailto:momen.fsifes@gmail.com">momen.fsifes@gmail.com</a></div>
                     </div>
                     <div class="contact-item animate-on-scroll">
                         <div class="contact-icon">📍</div>
@@ -423,7 +358,7 @@
                     </div>
                     <div class="social-links animate-on-scroll">
                         <a href="https://wa.me/970599762108" target="_blank" rel="noopener" class="social-link" title="WhatsApp"><img src="images/whatsapp.png" alt="WhatsApp"></a>
-                        <a href="https://x.com/fsifes_momen" target="_blank" rel="noopener" class="social-link" title="X (Twitter)"><img src="images/twitter.png" alt="X"></a>
+                        <a href="https://x.com/fsifes_momen" target="_blank" rel="noopener" class="social-link" title="X"><img src="images/twitter.png" alt="X"></a>
                         <a href="https://www.behance.net/momenfsifes108" target="_blank" rel="noopener" class="social-link" title="Behance"><img src="images/behance.png" alt="Behance"></a>
                     </div>
                 </div>
@@ -440,14 +375,12 @@
             </div>
         </div>
     </section>
-
-    <!-- Footer -->
     <footer>
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-brand">
                     <a href="#home" class="logo"><img src="images/logo.jpg" alt="Momen Fsifes Logo"></a>
-                    <p>مصمم UX/UI & Graphic Designer شغوف بإنشاء تجارب رقمية استثنائية. أحول الأفكار المعقدة إلى تصاميم بسيطة وأنيقة من غزة للعالم.</p>
+                    <p>مصمم UX/UI & Graphic Designer شغوف بإنشاء تجارب رقمية استثنائية.</p>
                     <div class="social-links">
                         <a href="https://wa.me/970599762108" target="_blank" rel="noopener" class="social-link"><img src="images/whatsapp.png" alt="WhatsApp"></a>
                         <a href="https://x.com/fsifes_momen" target="_blank" rel="noopener" class="social-link"><img src="images/twitter.png" alt="X"></a>
@@ -456,15 +389,11 @@
                 </div>
                 <div class="footer-links"><h4>روابط سريعة</h4><ul><li><a href="#home">الرئيسية</a></li><li><a href="#about">عنّي</a></li><li><a href="#services">الخدمات</a></li><li><a href="#portfolio">الأعمال</a></li></ul></div>
                 <div class="footer-links"><h4>الخدمات</h4><ul><li><a href="#services">UI Design</a></li><li><a href="#services">UX Research</a></li><li><a href="#services">Mobile Apps</a></li><li><a href="#services">Design System</a></li></ul></div>
-                <div class="footer-links"><h4>تواصل معي</h4><ul><li><a href="mailto:hello@momenfsifes.com">hello@momenfsifes.com</a></li><li><a href="https://wa.me/970599762108" target="_blank" rel="noopener">
-    <span style="direction: ltr; unicode-bidi: embed; display: inline-block;">+970 59 976 2108</span>
-</a></li><li><a href="#">غزة، فلسطين</a></li></ul></div>
+                <div class="footer-links"><h4>تواصل معي</h4><ul><li><a href="mailto:momen.fsifes@gmail.com">momen.fsifes@gmail.com</a></li><li><a href="https://wa.me/970599762108" target="_blank"><span style="direction: ltr; unicode-bidi: embed;">+970 59 976 2108</span></a></li><li><a href="#">غزة، فلسطين</a></li></ul></div>
             </div>
             <div class="footer-bottom"><p>© 2025 جميع الحقوق محفوظة <strong style="color: var(--primary);">MOMEN FSIFES</strong></p></div>
         </div>
     </footer>
-
-    <!-- JavaScript -->
     <script>
         window.addEventListener('load', () => setTimeout(() => { const loader = document.getElementById('loader'); if (loader) loader.classList.add('hidden'); }, 800));
         const mobileToggle = document.getElementById('mobile-toggle'), navMenu = document.getElementById('nav-menu');
@@ -520,7 +449,7 @@
                 };
                 emailjs.send('service_39lkc7p', 'template_a056i3l', templateParams)
                     .then(() => { btn.innerHTML = '✅ تم الإرسال!'; alert(`شكراً ${templateParams.from_name}! 🎨\nتم استلام رسالتك وسأرد عليك قريباً.`); contactForm.reset(); })
-                    .catch(() => { btn.innerHTML = '❌ فشل الإرسال'; alert('عذراً، حدث خطأ أثناء الإرسال. جرب مرة أخرى أو تواصل معي عبر واتساب.'); })
+                    .catch(() => { btn.innerHTML = '❌ فشل الإرسال'; alert('عذراً، حدث خطأ أثناء الإرسال.'); })
                     .finally(() => { setTimeout(() => { btn.innerHTML = originalText; btn.disabled = false; }, 3000); });
             });
         }
