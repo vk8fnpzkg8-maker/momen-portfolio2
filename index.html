@@ -476,17 +476,58 @@
                         <a href="https://x.com/fsifes_momen" target="_blank" rel="noopener" class="social-link" title="X (Twitter)">🐦</a>
                         <a href="https://www.behance.net/momenfsifes108" target="_blank" rel="noopener" class="social-link" title="Behance">🎨</a>
                     </div>
-                </div>
-                <form class="contact-form animate-on-scroll" id="contactForm">
-                    <div class="form-grid">
-                        <div class="form-group"><label for="name">الاسم الكامل *</label><input type="text" id="name" name="name" required placeholder="أدخل اسمك"></div>
-                        <div class="form-group"><label for="email">البريد الإلكتروني *</label><input type="email" id="email" name="email" required placeholder="أدخل بريدك"></div>
-                        <div class="form-group"><label for="service">نوع الخدمة *</label><select id="service" name="service" required><option value="">اختر الخدمة</option><option value="ui">تصميم واجهات UI</option><option value="ux">تجربة مستخدم UX</option><option value="mobile">تصميم تطبيق موبايل</option><option value="system">نظام تصميم Design System</option><option value="consulting">استشارة تصميم</option></select></div>
-                        <div class="form-group"><label for="budget">الميزانية التقريبية</label><select id="budget" name="budget"><option value="">اختر الميزانية</option><option value="small">أقل من 5,000 ر.س</option><option value="medium">5,000 - 15,000 ر.س</option><option value="large">15,000 - 30,000 ر.س</option><option value="xlarge">أكثر من 30,000 ر.س</option></select></div>
-                        <div class="form-group full"><label for="message">تفاصيل المشروع *</label><textarea id="message" name="message" required placeholder="أخبرني أكثر عن مشروعك..."></textarea></div>
-                    </div>
-                    <button type="submit" class="btn" style="width: 100%; margin-top: 1rem;">📤 إرسال الرسالة</button>
-                </form>
+                contactForm?.addEventListener('submit', function(e) {
+    e.preventDefault();
+    
+    const btn = this.querySelector('button[type="submit"]');
+    const originalText = btn.innerHTML;
+    btn.innerHTML = '📤 جاري الإرسال...';
+    btn.disabled = true;
+
+    // تحويل القيم المختارة لنص عربي مقروء
+    const serviceMap = {
+        'ui': 'تصميم واجهات UI',
+        'ux': 'تجربة مستخدم UX',
+        'mobile': 'تصميم تطبيق موبايل',
+        'system': 'نظام تصميم Design System',
+        'consulting': 'استشارة تصميم'
+    };
+    const budgetMap = {
+        'small': 'أقل من 1,000 ر.س',
+        'medium': '1,000 - 1,500 ر.س',
+        'large': '1,500 - 2,000 ر.س',
+        'xlarge': 'أكثر من 2,000 ر.س'
+    };
+
+    const templateParams = {
+        from_name: document.getElementById('name').value.trim(),
+        from_email: document.getElementById('email').value.trim(),
+        reply_to: document.getElementById('email').value.trim(),
+        service_type: serviceMap[document.getElementById('service').value] || 'غير محدد',
+        budget: budgetMap[document.getElementById('budget').value] || 'غير محدد',
+        message: document.getElementById('message').value.trim(),
+        to_name: 'Momen Fsifes',
+        date: new Date().toLocaleDateString('ar-EG', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }),
+        time: new Date().toLocaleTimeString('ar-EG', { hour: '2-digit', minute: '2-digit' })
+    };
+
+    const SERVICE_ID = 'service_39lkc7p';
+    const TEMPLATE_ID = 'template_a056i3l';
+
+    emailjs.send(SERVICE_ID, TEMPLATE_ID, templateParams)
+        .then(function(response) {
+            btn.innerHTML = '✅ تم الإرسال!';
+            alert(`شكراً ${templateParams.from_name}! 🎨\nتم استلام رسالتك وسأرد عليك قريباً.`);
+            contactForm.reset();
+        }, function(error) {
+            btn.innerHTML = '❌ فشل الإرسال';
+            alert('عذراً، حدث خطأ أثناء الإرسال. جرب مرة أخرى أو تواصل معي عبر واتساب.');
+            console.error('EmailJS Error:', error);
+        })
+        .finally(function() {
+            setTimeout(() => { btn.innerHTML = originalText; btn.disabled = false; }, 3000);
+        });
+});
             </div>
         </div>
     </section>
